@@ -17,7 +17,7 @@ face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 class_labels=['Angry','Happy','Neutral','Sad','Surprise']
 
 
-@st.cache
+@st.cache(ttl=3600, max_entries=10)
 def detect_emotion(image):
     #resize the frame to process it quickly
     frame = image
